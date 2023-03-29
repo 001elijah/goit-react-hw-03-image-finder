@@ -15,9 +15,18 @@ class ImageGallery extends Component {
     };
 
     state = {
+        query: '',
         pictures: null,
+        page: 1,
         isLoading: false,
         error: null
+    };
+
+    static getDerivedStateFromProps(props, state) {
+        if (state.query !== props.query) {
+          return { page: 1, query: props.query };
+        }
+        return null;
     };
 
     async componentDidUpdate(prevProps, prevState) {
