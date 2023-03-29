@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 import s from './ImageGalleryItem.module.scss';
 
-function ImageGalleryItem({ smallPictureUrl, largePictureUrl }) {
+function ImageGalleryItem({ smallPictureUrl, largePictureUrl, openModal }) {
     return (
-        <li className={s.ImageGalleryItem}>
+        <li className={s.ImageGalleryItem} onClick={() => openModal({ largePictureUrl })}>
             <img src={smallPictureUrl} alt="" data-large={largePictureUrl} className={s.ImageGalleryItemImage}/>
         </li>
     );
