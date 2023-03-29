@@ -55,11 +55,11 @@ class ImageGallery extends Component {
     
         try {
           const pictures = await fetchPicturesWithQuery(query, page);
-          if (pictures.length === 0 && !picturesInState) {
+          if (pictures.length === 0 && page === 1 && !this.state.endOfCollection) {
             throw new Error("No pictures found");
           };
-          if (pictures.length === 0) {
-            this.setState({ endOfCollection: true});
+          if (pictures.length === 0 && picturesInState) {
+            this.setState({ endOfCollection: true });
             this.notify("This is the end of collection, try another query...");
             return;
           };
@@ -74,7 +74,7 @@ class ImageGallery extends Component {
           };
         } catch (error) {
           this.setState({ error: error.message });
-          this.notify(`Error: ${error}!`)
+          this.notify(`Error: ${error.message}!`);
         } finally {
           this.setState({ isLoading: false });
         }

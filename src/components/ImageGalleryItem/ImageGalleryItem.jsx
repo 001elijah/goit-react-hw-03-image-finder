@@ -12,7 +12,8 @@ function ImageGalleryItem({ smallPictureUrl, largePictureUrl, openModal }) {
 
 ImageGalleryItem.propTypes = {
     smallPictureUrl: PropTypes.string.isRequired,
-    largePictureUrl: PropTypes.string.isRequired
+    largePictureUrl: PropTypes.string.isRequired,
+    openModal: PropTypes.func.isRequired
 };
 
 export default ImageGalleryItem;

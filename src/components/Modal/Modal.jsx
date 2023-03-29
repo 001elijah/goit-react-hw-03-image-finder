@@ -1,11 +1,17 @@
 import { createPortal } from "react-dom";
 import { Component } from "react";
+import PropTypes from 'prop-types';
 
 import s from './Modal.module.scss';
 
 const modalRoot = document.querySelector('#modalRoot');
 
 class Modal extends Component {
+
+    static propTypes = {
+        largePictureUrl: PropTypes.string.isRequired,
+        closeModal: PropTypes.func.isRequired
+    };
 
     componentDidMount() {
         window.addEventListener('keydown', this.closeModalWithEsc);
