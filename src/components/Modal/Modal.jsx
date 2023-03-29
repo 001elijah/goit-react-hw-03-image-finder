@@ -15,10 +15,12 @@ class Modal extends Component {
 
     componentDidMount() {
         window.addEventListener('keydown', this.closeModalWithEsc);
+        document.documentElement.style.overflow = 'hidden';
     };
 
     componentWillUnmount () {
         window.removeEventListener('keydown', this.closeModalWithEsc);
+        document.documentElement.style.overflow = 'unset';
     };
 
     closeModalWithEsc = (evt) => {
