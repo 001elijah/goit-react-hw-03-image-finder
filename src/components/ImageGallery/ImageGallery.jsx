@@ -66,10 +66,10 @@ class ImageGallery extends Component {
           if (pictures.length === 0 && page === 1 && !this.state.endOfCollection) {
             throw new Error("No pictures found");
           };
-          if (pictures.length === 0 && picturesInState) {
+          if (pictures.length < 12 && picturesInState) {
             this.setState({ endOfCollection: true });
-            this.notify("This is the end of collection, try another query...");
-            return;
+            this.notify("That's all! Try another query.");
+            // return;
           };
           this.setState((prevState) => ({
             pictures: page === 1 ? pictures : [...prevState.pictures, ...pictures],
@@ -109,7 +109,7 @@ class ImageGallery extends Component {
                     autoClose: 2000,
                 });
                 break;
-            case "This is the end of collection, try another query...":
+            case "That's all! Try another query.":
                 toast.warning(message, {
                     position: toast.POSITION.BOTTOM_CENTER,
                     toastId: customId,
