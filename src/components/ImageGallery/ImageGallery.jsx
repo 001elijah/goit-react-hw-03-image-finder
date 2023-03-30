@@ -39,7 +39,6 @@ class ImageGallery extends Component {
 
     componentDidMount() {
         this.notify('Type in your search query...');
-        console.log("galleryItemRef   :>> ", this.galleryItemRef);
     };
 
     async componentDidUpdate(prevProps, prevState) {
@@ -49,7 +48,6 @@ class ImageGallery extends Component {
           (prevState.page !== page && page !== 1)
         ) {
             this.setPics();
-            console.log("ref :>> ", this.galleryItemRef);
         }
         if (prevState.pictures !== pictures) { // new scroll
             this.galleryItemRef.current?.scrollIntoView({ // new scroll
